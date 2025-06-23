@@ -1,4 +1,5 @@
 short note on what i have done and learnt
+
 note: a detail on miniguide vs my code is saved as task1report document
 
 1.Importing Libraries
