@@ -1,4 +1,5 @@
-short note on what i have done and learnt
+short note on what i have done and learned
+
 files list :
 
 input dataset: titanic.csv
