@@ -1,6 +1,15 @@
 short note on what i have done and learnt
+files list :
 
-note: a detail on miniguide vs my code is saved as task1report document
+input dataset: titanic.csv
+
+code file: task1.ipynb
+
+output dataset: cleaned_dataset.csv
+
+miniguide vs my code: task1_report.docx
+
+brief on code:
 
 1.Importing Libraries
 
