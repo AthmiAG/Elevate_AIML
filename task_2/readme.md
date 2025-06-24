@@ -1,6 +1,7 @@
 
 This README file provides a clear overview of Task 2 – Exploratory Data Analysis on the Iris dataset. The objective is to derive meaningful insights using statistical analysis and visualizations.
 
+NOTE:since interactive is not visualized here in github, I have uploaded screenshots of those.
 
 1.Tools Used
 
