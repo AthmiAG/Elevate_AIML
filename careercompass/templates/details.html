@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(120deg, #ff7e5f, #feb47b);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%; /* Full width */
+            max-width: 900px; /* Max width to prevent stretching */
+            margin: 50px auto;
+            padding: 30px;
+            background: transparent; /* Transparent background */
+            border-radius: 15px;
+            border: 5px solid transparent; /* Transparent border initially */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.8s ease-out, frameColorChange 6s infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes frameColorChange {
+            0% {
+                border-color: #ff7e5f;
+            }
+            25% {
+                border-color: #feb47b;
+            }
+            50% {
+                border-color: #6a11cb;
+            }
+            75% {
+                border-color: #2575fc;
+            }
+            100% {
+                border-color: #ff7e5f;
+            }
+        }
+
+        h1 {
+            color: #6a11cb;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-transform: capitalize;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        a.skill-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a.skill-link:hover {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        a.nav-link {
+            margin-top: 20px;
+            display: inline-block;
+            color: #fff;
+            background-color: #6a11cb;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        a.nav-link:hover {
+            background-color: #2575fc;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        /* Slide-in animation for skills list */
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ job_title }}</h1>
+        <h2>Missing Skills</h2>
+        {% if missing_skills and missing_skills != "None" %}
+            <ul id="skills-list">
+                {% for skill in missing_skills.split(', ') %}
+                    <li>
+                        <a class="skill-link" target="_blank" href="https://www.udemy.com/courses/search/?q={{ skill }}">{{ skill }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Congratulations! You have all the required skills for this job.</p>
+        {% endif %}
+        <a href="/" class="nav-link">Go Back</a>
+    </div>
+    <footer>
+        &copy; 2024 Career-Compass
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll("#skills-list li");
+            skills.forEach((skill, index) => {
+                setTimeout(() => {
+                    skill.style.opacity = "1";
+                    skill.style.transform = "translateY(0)";
+                }, index * 300); // Delay of 300ms for each skill
+            });
+        });
+    </script>
+</body>
+</html>
